@@ -93,7 +93,7 @@ IMAGEM 5
 
 IMAGEM 6
         
-Repare que o Load Balancer está como 'pending' porque como estamos criando a aplicação localmente, não existe de fato um LoadBalancer, por isso ele não consegue um IP para usar. Mas é através dele que vamos acessar nossa aplicação expondo uma porta da mesma maneira que fizemos com o ArgoCD, para isso usaremos o seguinte comando:
+Repare que sendo um Load Balancer o status fica como 'pending' porque como estamos criando a aplicação localmente, não existe de fato um LoadBalancer, por isso ele não consegue um IP para usar. Mas é possível através dele acessar nossa aplicação expondo uma porta da mesma maneira que fizemos com o ArgoCD, para isso usaremos o seguinte comando:
 
         kubectl port-forward svc/frontend-external 8081:80 -n boutique
 
@@ -101,4 +101,22 @@ Depois podemos acessar nossa aplicação acessando http://localhost:8081
 
 IMAGEM 7
 
-Caso não queira faze desta maneira basta mudar as configurações para usar o NodePort no lugar de Load Balancer
+Como não estamos usando um load-balancer vamos alterar as configurações do nosso yaml, mudando as configurações para usar o NodePort no lugar de Load Balancer nas configurações do Service frontend-external e acessar via http://localhost:30080
+
+        apiVersion: v1
+        kind: Service
+        metadata:
+          name: frontend-external
+          labels:
+            app: frontend
+        spec:
+          type: NodePort
+          selector:
+            app: frontend
+          ports:
+          - name: http
+            port: 80
+            targetPort: 8080
+            nodePort: 30080
+
+
