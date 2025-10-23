@@ -33,16 +33,20 @@ Para dar início, após a instalação das ferramentas devemos testar se tudo es
 
 E você deve esperar esta resposta:
 
-IMAGEM 1
+![argocd-pods](/images/argocd-pods.png "Pods ArgoCD")
 
 Com o argocd funcionando você deve criar um repositório no Github contendo o arquivo Yaml da sua aplicação. Neste projeto o nosso Yaml está localizado dentro da pasta k8s/online-boutique.yaml.
 Com o repositório criado, copie a url para o seu repositório:
 
-IMAGEM 2
+![github-path](/images/github-path.png "Github path")
 
 Agora no seu terminal, devemos expor a porta do ArgoCD para que possamos fazer login, para isso digite o comando:
 
         kubectl port-forward svc/argocd-server -n argocd 8080:443
+
+E tera como resposta:
+
+![argocd-forward](/images/argocd-forward.png "ArgoCD port forward")
 
 Com a porta exposta, abra mais um terminal sem fechar o outro. Iremos fazer login no ArgoCD, para isso primeiro precisamos decodificar a senha do ArgoCD usando o comando:
 
@@ -54,11 +58,11 @@ Este comando irá encontrar a senha, decodificar em base64 e exibir no seu termi
 
 Após o comando aperte 'y' e login será feito:
 
-IMAGEM 3
+![argocd-login](/images/argocd-login.png "ArgoCD Login")
 
 Ou se preferir, pode acessar no seu navegador *http://localhost:8080* para acessar a interface gráfica.
 
-IMAGEM 4
+![argocd-interface](/images/argocd-interface.png "ArgoCD Interface")
 
 Nesta demonstração permaneceremos usando o terminal, porém é possível fazer os mesmo processos via interface gráfica.
 No terminal em que você fez login vamos adicionar o nosso repositório a nossa lista de repositórios do ArgoCD usando o comando:
@@ -85,11 +89,11 @@ Após a criação de todos os recursos podemos conferir se os recursos foram cri
 
         kubectl get pods -n boutique
 
-IMAGEM 5
+![pods-boutique](/images/pods-boutique.png "Pods Boutique")
 
         kubectl get services -n boutique
 
-IMAGEM 6
+![services-boutique](/images/services-boutique.png "Services Boutique")
         
 Repare que sendo um Load Balancer o status fica como 'pending' porque como estamos criando a aplicação localmente, não existe de fato um LoadBalancer, por isso ele não consegue um IP para usar. Mas é possível através dele acessar nossa aplicação expondo uma porta da mesma maneira que fizemos com o ArgoCD, para isso usaremos o seguinte comando:
 
@@ -97,7 +101,7 @@ Repare que sendo um Load Balancer o status fica como 'pending' porque como estam
 
 Depois podemos acessar nossa aplicação acessando http://localhost:8081
 
-IMAGEM 7
+![front-boutique](/images/front-boutique.png "Front Boutique")
 
 Como não estamos usando um load-balancer vamos alterar as configurações do nosso yaml, mudando as configurações para usar o NodePort no lugar de Load Balancer nas configurações do Service frontend-external e acessar via http://localhost:30080
 
@@ -123,7 +127,7 @@ Após o commit das atualizações o ArgoCD irá sincronizar a aplicação autom�
 
 Se você acessar o seu ArgoCD pelo navegador este será o resultado:
 
-IMAGEM 8
+![resultado-final](/images/resultado-final.png "Resultado final")
 
 ## Conclusão
 
