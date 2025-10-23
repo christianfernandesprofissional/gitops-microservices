@@ -10,8 +10,6 @@ Funcionalidades:
 
 - Monitoramento do estado da aplicação pelo ArgoCD.
 
-- Rollback fácil para versões anteriores.
-
 - Suporte a múltiplos ambientes (dev, teste, produção).
 
 Este projeto é ideal para quem deseja aprender práticas modernas de DevOps, GitOps e Kubernetes.
@@ -123,4 +121,14 @@ Após o commit das atualizações o ArgoCD irá sincronizar a aplicação autom�
 
         argocd app sync online-boutique
 
+Se você acessar o seu ArgoCD pelo navegador este será o resultado:
 
+IMAGEM 8
+
+## Conclusão
+
+Este projeto demonstra como automatizar o deploy de uma aplicação usando Kubernetes e ArgoCD, garantindo que o estado do cluster esteja sempre sincronizado com o repositório Git.
+
+O ArgoCD monitora continuamente e gerencia múltiplos ambientes, facilitando a aplicação de práticas modernas de DevOps e GitOps.
+
+Seguindo este guia, é possível ter uma ideia de como funciona uma implantação automatizada em cloud-native, usando GitHub, Rancher Desktop com Kubernetes e ArgoCD.
