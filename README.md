@@ -21,7 +21,6 @@ Este projeto é ideal para quem deseja aprender práticas modernas de DevOps, Gi
 
 Para este projeto é necessário que você tenha instalado na sua máquina algumas ferramentas, para isso basta seguir os tutoriais descritos nos links abaixo:
 
-- **Docker:** <a>https://docs.docker.com/engine/install/ubuntu/</a>
 - **kubectl:** <a>https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/</a>
 - **rancher-desktop:** <a>https://docs.rancherdesktop.io/getting-started/installation/</a>
 - **ArgoCD:** <a>https://argo-cd.readthedocs.io/en/stable/getting_started/</a>
@@ -38,5 +37,4 @@ E você deve esperar esta resposta:
 
 IMAGEM 1
 
-Com o argocd funcionando
-
+Com o argocd funcionando você deve criar um repositório no Github contendo o arquivo Yaml da sua aplicação. Neste projeto o nosso Yaml está localizado dentro da pasta k8s/online-boutique.yaml.
