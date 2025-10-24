@@ -138,7 +138,7 @@ Como não estamos usando um load-balancer vamos alterar as configurações do no
         targetPort: 8080
         nodePort: 30080
 
-Após o commit das atualizações o ArgoCD irá sincronizar a aplicação automáticamente, mas caso não tenha usado a configuração *----sync-policy automated*, use o comando para se sincronizar com o repositório:
+Após o commit das atualizações o ArgoCD irá sincronizar a aplicação automáticamente, mas caso não tenha usado a configuração *--sync-policy automated*, use o comando para se sincronizar com o repositório:
 
     argocd app sync online-boutique
 
