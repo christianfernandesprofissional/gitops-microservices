@@ -49,8 +49,7 @@ Agora no seu terminal, devemos expor a porta do ArgoCD para que possamos fazer l
 
         kubectl port-forward svc/argocd-server -n argocd 8080:443
 
-E tera como resposta:
-
+E terá como resposta: 
 
 ![argocd-forward](/images/argocd-forward.png "ArgoCD port forward")
 
@@ -88,13 +87,13 @@ Iremos utilizar este namespace para rodar nossa aplicação. Para isso iremos us
 
     argocd app create nome-da-sua-aplicação --repo caminho-do-seu-repositório  --path caminho-da-pasta-do-seu-yaml-no-github  --dest-server https://kubernetes.default.svc  --dest-namespace boutique  --sync-policy automated  --auto-prune  --self-heal
         
-**--dest-server https://kubernetes.default.svc** -> Aponta para qual cluster a aplicação será iniciada 
+ - **--dest-server https://kubernetes.default.svc** -> Aponta para qual cluster a aplicação será iniciada 
 
-**--sync-policy automated** -> Deixa como automática a sincronização com seu repositório, ou seja, qualquer alteração será aplicada automaticamente
+ - **--sync-policy automated** -> Deixa como automática a sincronização com seu repositório, ou seja, qualquer alteração será aplicada automaticamente
 
-**--auto-prune** -> Permite que o ArgoCD remova recursos antigos que foram deletados do repositório.
+ - **--auto-prune** -> Permite que o ArgoCD remova recursos antigos que foram deletados do repositório.
 
-**--self-heal** -> Permite que o ArgoCD corrija manualmente mudanças fora do Git.
+ - **--self-heal** -> Permite que o ArgoCD corrija manualmente mudanças fora do Git.
 
 Após a criação de todos os recursos podemos conferir se os recursos foram criados com os comandos:
 
@@ -115,13 +114,13 @@ Repare que sendo um Load Balancer o status fica como 'pending' porque como estam
 
         kubectl port-forward svc/frontend-external 8081:80 -n boutique
 
-Depois podemos acessar nossa aplicação acessando http://localhost:8081
 
+Depois podemos acessar nossa aplicação em *http://localhost:8081*
 
 ![front-boutique](/images/front-boutique.png "Front Boutique")
 
-
 Como não estamos usando um load-balancer vamos alterar as configurações do nosso yaml, mudando as configurações para usar o NodePort no lugar de Load Balancer nas configurações do Service frontend-external e acessar via http://localhost:30080
+
 
     apiVersion: v1
     kind: Service
