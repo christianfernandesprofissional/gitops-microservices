@@ -53,7 +53,6 @@ E terá como resposta:
 
 ![argocd-forward](/images/argocd-forward.png "ArgoCD port forward")
 
-
 Com a porta exposta, abra mais um terminal sem fechar o outro. Iremos fazer login no ArgoCD, para isso primeiro precisamos decodificar a senha do ArgoCD usando o comando:
 
     kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
@@ -64,15 +63,12 @@ Este comando irá encontrar a senha, decodificar em base64 e exibir no seu termi
 
 Após o comando aperte 'y' e login será feito:
 
-
-![argocd-login](/images/argocd-login.png "ArgoCD Login")
+![argocd-login](/images/argocd-login.png "ArgoCD Login") 
 
 
 Ou se preferir, pode acessar no seu navegador *http://localhost:8080* para acessar a interface gráfica.
 
-
 ![argocd-interface](/images/argocd-interface.png "ArgoCD Interface")
-
 
 Nesta demonstração permaneceremos usando o terminal, porém é possível fazer os mesmo processos via interface gráfica.
 No terminal em que você fez login vamos adicionar o nosso repositório a nossa lista de repositórios do ArgoCD usando o comando:
