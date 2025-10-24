@@ -37,14 +37,16 @@ Para dar início, após a instalação das ferramentas devemos testar se tudo es
 E você deve esperar esta resposta:
 
 
- <img src="images/argocd-pods.png?raw=true"/>
+<img width="883" height="184" alt="argocd-pods" src="https://github.com/user-attachments/assets/5b974460-48dc-4efc-bbf9-245f6f4fa00c" />
+
  
 
 Com o argocd funcionando você deve criar um repositório no Github contendo o arquivo Yaml da sua aplicação. Neste projeto o nosso Yaml está localizado dentro da pasta k8s/online-boutique.yaml.
 Com o repositório criado, copie a url para o seu repositório:
 
 
- <img src="images/github-path.png?raw=true"/>
+
+<img width="421" height="324" alt="github-path" src="https://github.com/user-attachments/assets/0f6048a8-ceff-413b-b539-62f181eaebdf" />
 
 
 Agora no seu terminal, devemos expor a porta do ArgoCD para que possamos fazer login, para isso digite o comando:
@@ -54,7 +56,8 @@ Agora no seu terminal, devemos expor a porta do ArgoCD para que possamos fazer l
 E terá como resposta: 
 
 
- <img src="images/argocd-forward.png?raw=true"/>
+
+<img width="412" height="47" alt="argocd-forward" src="https://github.com/user-attachments/assets/263ef270-b644-4808-a5dd-2a6e32f7537e" />
 
 
 Com a porta exposta, abra mais um terminal sem fechar o outro. Iremos fazer login no ArgoCD, para isso primeiro precisamos decodificar a senha do ArgoCD usando o comando:
@@ -68,13 +71,15 @@ Este comando irá encontrar a senha, decodificar em base64 e exibir no seu termi
 Após o comando aperte 'y' e login será feito:
 
 
- <img src="images/argocd-login.png?raw=true"/>
+<img width="1499" height="68" alt="argocd-login" src="https://github.com/user-attachments/assets/d54881bc-eae9-431a-84b6-39905a956182" />
+
 
  
 Ou se preferir, pode acessar no seu navegador *http://localhost:8080* para acessar a interface gráfica.
 
 
- <img src="images/argocd-interface.png?raw=true"/>
+ 
+<img width="1499" height="964" alt="argocd-interface" src="https://github.com/user-attachments/assets/eb354a72-7b66-48e4-80e4-b926c1fcf274" />
 
 
 Nesta demonstração permaneceremos usando o terminal, porém é possível fazer os mesmo processos via interface gráfica.
@@ -103,13 +108,14 @@ Após a criação de todos os recursos podemos conferir se os recursos foram cri
     kubectl get pods -n boutique
 
 
- <img src="images/pods-boutique.png?raw=true"/>
+<img width="752" height="289" alt="pods-boutique" src="https://github.com/user-attachments/assets/2a17e9de-d7e5-4c81-91e8-89fee6bf2fce" />
 
 
     kubectl get services -n boutique 
 
 
- <img src="images/services-boutique.png?raw=true"/>
+
+<img width="890" height="289" alt="services-boutique" src="https://github.com/user-attachments/assets/0d84a817-d2b0-4163-a63d-f58c9cbd0e5d" />
 
         
 Repare que sendo um Load Balancer o status fica como 'pending' porque como estamos criando a aplicação localmente, não existe de fato um LoadBalancer, por isso ele não consegue um IP para usar. Mas é possível através dele acessar nossa aplicação expondo uma porta da mesma maneira que fizemos com o ArgoCD, para isso usaremos o seguinte comando:
@@ -120,7 +126,8 @@ Repare que sendo um Load Balancer o status fica como 'pending' porque como estam
 Depois podemos acessar nossa aplicação em *http://localhost:8081*
 
 
-<img src="images/front-boutique.png?raw=true"/>
+
+<img width="1652" height="878" alt="front-boutique" src="https://github.com/user-attachments/assets/366e462d-bf77-4115-a633-935acf71452e" />
 
 
 Como não estamos usando um load-balancer vamos alterar as configurações do nosso yaml, mudando as configurações para usar o NodePort no lugar de Load Balancer nas configurações do Service frontend-external e acessar via http://localhost:30080
@@ -149,7 +156,8 @@ Após o commit das atualizações o ArgoCD irá sincronizar a aplicação autom�
 Se você acessar o seu ArgoCD pelo navegador este será o resultado:
 
 
-<img src="images/resultado-final.png?raw=true"/>
+
+<img width="396" height="361" alt="resultado-final" src="https://github.com/user-attachments/assets/b491701d-1930-4de2-bb4a-2b7cbc864f42" />
 
 
 ## Conclusão
