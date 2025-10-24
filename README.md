@@ -36,12 +36,16 @@ Para dar início, após a instalação das ferramentas devemos testar se tudo es
 
 E você deve esperar esta resposta:
 
+
  <img src="images/argocd-pods.png?raw=true"/>
+ 
 
 Com o argocd funcionando você deve criar um repositório no Github contendo o arquivo Yaml da sua aplicação. Neste projeto o nosso Yaml está localizado dentro da pasta k8s/online-boutique.yaml.
 Com o repositório criado, copie a url para o seu repositório:
 
+
  <img src="images/github-path.png?raw=true"/>
+
 
 Agora no seu terminal, devemos expor a porta do ArgoCD para que possamos fazer login, para isso digite o comando:
 
@@ -49,7 +53,9 @@ Agora no seu terminal, devemos expor a porta do ArgoCD para que possamos fazer l
 
 E terá como resposta: 
 
+
  <img src="images/argocd-forward.png?raw=true"/>
+
 
 Com a porta exposta, abra mais um terminal sem fechar o outro. Iremos fazer login no ArgoCD, para isso primeiro precisamos decodificar a senha do ArgoCD usando o comando:
 
@@ -61,11 +67,15 @@ Este comando irá encontrar a senha, decodificar em base64 e exibir no seu termi
 
 Após o comando aperte 'y' e login será feito:
 
+
  <img src="images/argocd-login.png?raw=true"/>
+
  
 Ou se preferir, pode acessar no seu navegador *http://localhost:8080* para acessar a interface gráfica.
 
+
  <img src="images/argocd-interface.png?raw=true"/>
+
 
 Nesta demonstração permaneceremos usando o terminal, porém é possível fazer os mesmo processos via interface gráfica.
 No terminal em que você fez login vamos adicionar o nosso repositório a nossa lista de repositórios do ArgoCD usando o comando:
@@ -109,7 +119,9 @@ Repare que sendo um Load Balancer o status fica como 'pending' porque como estam
 
 Depois podemos acessar nossa aplicação em *http://localhost:8081*
 
- <img src="images/front-boutique.png?raw=true"/>
+
+<img src="images/front-boutique.png?raw=true"/>
+
 
 Como não estamos usando um load-balancer vamos alterar as configurações do nosso yaml, mudando as configurações para usar o NodePort no lugar de Load Balancer nas configurações do Service frontend-external e acessar via http://localhost:30080
 
@@ -136,7 +148,9 @@ Após o commit das atualizações o ArgoCD irá sincronizar a aplicação autom�
 
 Se você acessar o seu ArgoCD pelo navegador este será o resultado:
 
- <img src="images/resultado-final.png?raw=true"/>
+
+<img src="images/resultado-final.png?raw=true"/>
+
 
 ## Conclusão
 
