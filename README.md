@@ -1,5 +1,8 @@
 # Deploy Contínuo com Kubernetes e ArgoCD
 
+<img align="center" alt="Linux" width="80px" height="80px" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kubernetes/kubernetes-original.svg"/> <img align="center" alt="Linux" width="80px" height="80px" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/argocd/argocd-original-wordmark.svg"/> <img align="center" alt="Linux" width="80px" height="80px" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linux/linux-original.svg"/>
+
+
 Este projeto demonstra como automatizar o deploy de uma aplicação hospedada no GitHub usando Kubernetes e ArgoCD em um ambiente Linux. Para esta demonstração foi utilizado **Ubuntu 24.04.3 LTS**.
 
 A aplicação é gerenciada dentro de um cluster Kubernetes, garantindo escalabilidade e alta disponibilidade. O ArgoCD sincroniza automaticamente o estado do cluster com o repositório Git, aplicando mudanças sempre que houver atualizações no código ou nos manifests.
